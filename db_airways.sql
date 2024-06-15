@@ -60,5 +60,5 @@ CREATE TABLE flight (
 );
 
 CREATE TABLE instance_of (
-
+  test
 );
