@@ -34,19 +34,19 @@ CREATE TABLE departure (
 
 CREATE TABLE assigned_to (
   employee_no INT(10),
-  date VARCHAR(20),
+  departure_date VARCHAR(20),
   flight_number INT(10),
-  PRIMARY KEY (employee_no, date, flight_number),
+  PRIMARY KEY (employee_no, departure_date, flight_number),
   FOREIGN KEY employee_no REFERENCES employee(employee_no),
-  FOREIGN KEY (date, flight_number) REFERENCES departure(date, flight_number)
+  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number)
 );
 
 CREATE TABLE booked_on (
   ticket_number VARCHAR(20),
-  date VARCHAR(20),
+  departure_date VARCHAR(20),
   flight_number INT(10),
-  PRIMARY KEY (ticket_number, date, flight_number),
-  FOREIGN KEY (date, flight_number) REFERENCES departure(date, flight_number),
+  PRIMARY KEY (ticket_number, departure_date, flight_number),
+  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number),
   FOREIGN KEY ticket_number REFERENCES passenger(ticket_number)
 );
 
