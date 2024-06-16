@@ -4,9 +4,10 @@ CREATE DATABASE db_airways;
 USE db_airways;
 
 CREATE TABLE person (
-  name VARCHAR(50) PRIMARY KEY,
+  name VARCHAR(50),
   address VARCHAR(100),
-  phone VARCHAR(15)
+  phone VARCHAR(15),
+  PRIMARY KEY (name)
 );
 
 CREATE TABLE passenger (
@@ -27,7 +28,7 @@ CREATE TABLE employee (
 CREATE TABLE departure (
   departure_date VARCHAR(20),
   flight_number INT(10),
-  PRIMARY KEY (dat, flight_number)
+  PRIMARY KEY (departure_date, flight_number)
 );
 
 
@@ -60,9 +61,9 @@ CREATE TABLE flight (
 );
 
 CREATE TABLE instance_of (
-  departure_date VARCHAR(20)
-  flight_number INT(10)
-  PRIMARY KEY (departure_date)
+  departure_date VARCHAR(20),
+  flight_number INT(10),
+  PRIMARY KEY (departure_date),
   FOREIGN KEY flight_number REFERENCES flight(flight_number)
 
 );
@@ -77,7 +78,7 @@ CREATE TABLE pilot (
 CREATE TABLE plane (
   maker VARCHAR(10),
   model_no VARCHAR(10),
-  PRIMARY KEY (model_no),
+  PRIMARY KEY (model_no)
 );
 
 CREATE TABLE aircraft (
@@ -95,8 +96,8 @@ CREATE TABLE can_fly (
 );
 
 CREATE TABLE type (
-  serial_no INT(5)
-  model_no VARCHAR(10)
-  PRIMARY KEY (serial_no)
+  serial_no INT(5),
+  model_no VARCHAR(10),
+  PRIMARY KEY (serial_no),
   FOREIGN KEY model_no REFERENCES plane(model_no)
 );
