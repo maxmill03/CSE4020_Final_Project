@@ -14,7 +14,7 @@ CREATE TABLE passenger (
   ticket_number VARCHAR(20),
   name VARCHAR(20),
   PRIMARY KEY (ticket_number),
-  FOREIGN KEY name REFERENCES person(name)
+  FOREIGN KEY (name) REFERENCES person(name)
 );
 
 CREATE TABLE employee (
@@ -22,7 +22,7 @@ CREATE TABLE employee (
   name VARCHAR(20),
   salary INT(20),
   PRIMARY KEY (employee_no),
-  FOREIGN KEY name REFERENCES person(name)
+  FOREIGN KEY (name) REFERENCES person(name)
 );
 
 CREATE TABLE departure (
@@ -71,8 +71,7 @@ CREATE TABLE instance_of (
 CREATE TABLE pilot (
   flight_Hours INT(20),
   employee_no INT(10),
-  PRIMARY KEY (employee_no),
-  FOREIGN KEY (employee_no) REFERENCES employee(employee_no) ON DELETE CASCADE
+  PRIMARY KEY (employee_no)
 );
 
 CREATE TABLE plane (
@@ -83,8 +82,7 @@ CREATE TABLE plane (
 
 CREATE TABLE aircraft (
   serial_no INT(5),
-  model_no VARCHAR(10),
-  PRIMARY KEY (serial_no)
+  model_no VARCHAR(10)
 );
 
 CREATE TABLE can_fly (
