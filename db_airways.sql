@@ -71,7 +71,7 @@ CREATE TABLE instance_of (
 CREATE TABLE pilot (
   flight_Hours INT(20),
   employee_no INT(10),
-  PRIMARY KEY (employee_no)
+  FOREIGN KEY (employee_no) REFERENCES employee(employee_no)
 );
 
 CREATE TABLE plane (
