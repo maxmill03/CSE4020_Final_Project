@@ -18,7 +18,7 @@ CREATE TABLE passenger (
 );
 
 CREATE TABLE employee (
-  employee_no INT(10),
+  employee_no INT(20),
   name VARCHAR(20),
   salary INT(20),
   PRIMARY KEY (employee_no),
@@ -33,7 +33,7 @@ CREATE TABLE departure (
 
 
 CREATE TABLE assigned_to (
-  employee_no INT(10),
+  employee_no INT(20),
   departure_date VARCHAR(20),
   flight_number INT(10),
   PRIMARY KEY (employee_no, departure_date, flight_number),
@@ -65,12 +65,11 @@ CREATE TABLE instance_of (
   flight_number INT(10),
   PRIMARY KEY (departure_date),
   FOREIGN KEY (flight_number) REFERENCES flight(flight_number)
-
 );
 
 CREATE TABLE pilot (
+  employee_no INT(20),
   flight_Hours INT(20),
-  employee_no INT(10),
   FOREIGN KEY (employee_no) REFERENCES employee(employee_no)
 );
 
@@ -86,7 +85,7 @@ CREATE TABLE aircraft (
 );
 
 CREATE TABLE can_fly (
-  employee_no INT(10),
+  employee_no INT(20),
   model_number VARCHAR(10),
   PRIMARY KEY (employee_no, model_number),
   FOREIGN KEY (employee_no) REFERENCES pilot(employee_no),
