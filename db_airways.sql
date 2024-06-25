@@ -26,7 +26,7 @@ CREATE TABLE employee (
 );
 
 CREATE TABLE departure (
-  departure_date VARCHAR(20),
+  departure_date DATE,
   flight_number INT(10),
   PRIMARY KEY (departure_date, flight_number)
 );
@@ -34,7 +34,7 @@ CREATE TABLE departure (
 
 CREATE TABLE assigned_to (
   employee_no INT(20),
-  departure_date VARCHAR(20),
+  departure_date DATE,
   flight_number INT(10),
   PRIMARY KEY (employee_no, departure_date, flight_number),
   FOREIGN KEY (employee_no) REFERENCES employee(employee_no),
@@ -43,7 +43,7 @@ CREATE TABLE assigned_to (
 
 CREATE TABLE booked_on (
   ticket_number VARCHAR(20),
-  departure_date VARCHAR(20),
+  departure_date DATE,
   flight_number INT(10),
   PRIMARY KEY (ticket_number, departure_date, flight_number),
   FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number),
@@ -54,14 +54,14 @@ CREATE TABLE flight (
   flight_number INT(10),
   origin VARCHAR(5),
   destination VARCHAR(5),
-  departure_time VARCHAR(5),
-  arrival_time VARCHAR(5),
+  departure_time TIME,
+  arrival_time TIME,
   status VARCHAR(10),
   PRIMARY KEY (flight_number)
 );
 
 CREATE TABLE instance_of (
-  departure_date VARCHAR(20),
+  departure_date DATE,
   flight_number INT(10),
   PRIMARY KEY (departure_date),
   FOREIGN KEY (flight_number) REFERENCES flight(flight_number)
