@@ -7,4 +7,4 @@ TODO
 - ~~Executing the query for part (c)~~
 - The Trigger in Part (d)
 - The Procedures in Part (e)
-- MAKE SURE TO CONVERT TO CONNECTOR TO AWS WHEN EVERYTHING WORKS
+- MAKE SURE TO CONVERT CONNECTOR TO AWS WHEN EVERYTHING WORKS
