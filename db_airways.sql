@@ -38,7 +38,7 @@ CREATE TABLE assigned_to (
   flight_number INT(10),
   PRIMARY KEY (employee_no, departure_date, flight_number),
   FOREIGN KEY (employee_no) REFERENCES employee(employee_no),
-  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number)
+  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number) ON UPDATE CASCADE
 );
 
 CREATE TABLE booked_on (
@@ -46,7 +46,7 @@ CREATE TABLE booked_on (
   departure_date DATE,
   flight_number INT(10),
   PRIMARY KEY (ticket_number, departure_date, flight_number),
-  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number),
+  FOREIGN KEY (departure_date, flight_number) REFERENCES departure(departure_date, flight_number) ON UPDATE CASCADE,
   FOREIGN KEY (ticket_number) REFERENCES passenger(ticket_number)
 );
 
